@@ -15,9 +15,14 @@ class Memory:
             case "huggingface":
                 from langchain.embeddings import HuggingFaceEmbeddings
                 _embeddings = HuggingFaceEmbeddings()
-
+            case "azureopenai":
+                from langchain.embeddings import AzureOpenAIEmbeddings
+                _embeddings = AzureOpenAIEmbeddings(    
+                    azure_deployment="text-embedding-ada-002",
+                    openai_api_version="2023-05-15"
+                    )
             case _:
-                raise Exception("Embedding provider not found.")
+                raise Exception(f"Embedding provider '{embedding_provider}' not found.")
 
         self._embeddings = _embeddings
 

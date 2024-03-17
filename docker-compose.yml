@@ -4,7 +4,13 @@ services:
     image: assafelovic/gpt-researcher
     build: ./
     environment: 
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
       TAVILY_API_KEY: ${TAVILY_API_KEY}
+      OPENAI_API_VERSION: 2023-12-01-preview
+      AZURE_OPENAI_ENDPOINT: ${AZURE_OPENAI_ENDPOINT}
+      AZURE_OPENAI_API_KEY: ${AZURE_OPENAI_API_KEY}
+      LLM_PROVIDER: AzureChatOpenAI
+      EMBEDDING_PROVIDER: azureopenai
+      FAST_LLM_MODEL: gpt-35-turbo-16k
+      SMART_LLM_MODEL: gpt-4
     ports:
       - 8000:8000
